@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import './styles.css';
 
 const CustomCheckBox = ({
@@ -16,12 +16,21 @@ const CustomCheckBox = ({
     handleChange(code, !checked);
   }, [checked, handleChange]);
 
-  return (
-    <div className="checkbox">
-      <input type="checkbox" id={name} onChange={onChange} checked={checked} />
-      <label>{name}</label>
-    </div>
-  );
+  const showCheckBox = useMemo(() => {
+    return (
+      <div className="checkbox">
+        <input
+          type="checkbox"
+          id={name}
+          onChange={onChange}
+          checked={checked}
+        />
+        <label>{name}</label>
+      </div>
+    );
+  }, [name, checked, onChange]);
+
+  return <>{showCheckBox}</>;
 };
 
 export default CustomCheckBox;
