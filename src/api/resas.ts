@@ -1,7 +1,11 @@
 import { Dispatch } from 'redux';
-import { getPrefecturesApi } from '../lib/constants';
-import { Prefecture } from '../lib/types';
-import { loadInitialPrefectures } from '../redux/resas/resas';
+import { getPrefecturesApi, getIndividualApi } from '../lib/constants';
+import { Population, Prefecture } from '../lib/types';
+import {
+  loadInitialPrefectures,
+  selectPrefecture,
+  removePrefecture,
+} from '../redux/resas/resas';
 
 export const loadInitialPrefecturesApi = async (dispatch: Dispatch) => {
   try {
@@ -17,4 +21,29 @@ export const loadInitialPrefecturesApi = async (dispatch: Dispatch) => {
   } catch (error) {
     alert((error as Error).message);
   }
+};
+
+export const selectPrefectureApi = async (
+  prefCode: number,
+  dispatch: Dispatch
+) => {
+  try {
+    const res = await fetch(`${getIndividualApi}?prefCode=${prefCode}`, {
+      method: 'GET',
+      headers: { 'x-api-key': `${process.env.REACT_APP_API_KEY}` },
+    });
+    const response = await res.json();
+    const { data } = response.result;
+    const payload: Population = {
+      data,
+      prefCode,
+    };
+    dispatch(selectPrefecture(payload));
+  } catch (error) {
+    alert((error as Error).message);
+  }
+};
+
+export const removePrefectureApi = (prefCode: number, dispatch: Dispatch) => {
+  dispatch(removePrefecture(prefCode));
 };
