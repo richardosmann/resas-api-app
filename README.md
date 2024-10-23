@@ -14,7 +14,7 @@
 
 # Live Demo
 
-https://resas-app-seven.vercel.app/
+https://resas-api-app.vercel.app/
 
 ## ❯ Getting Started
 
