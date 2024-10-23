@@ -7,9 +7,10 @@ import { RootState } from '../../redux/store';
 import CustomSelect from '../CustomSelect';
 import { Population, Prefecture } from '../../lib/types';
 import { ageOptions } from '../../lib/constants';
+import Spinner from '../CustomSpinner';
 
 const CustomChart: React.FC = () => {
-  const { prefectures, selectedLists, age } = useSelector(
+  const { loading, prefectures, selectedLists, age } = useSelector(
     (state: RootState) => state.resas
   );
 
@@ -62,6 +63,7 @@ const CustomChart: React.FC = () => {
           <div className="chart">
             <HighchartsReact highcharts={Highcharts} options={options} />
           </div>
+          {loading && <Spinner />}
         </>
       )
     );

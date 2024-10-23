@@ -2,6 +2,7 @@ export interface ResasType {
   prefectures: Prefecture[];
   selectedLists: Population[];
   age: string;
+  loading: boolean;
 }
 
 export interface Prefecture {

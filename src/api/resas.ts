@@ -6,10 +6,12 @@ import {
   selectPrefecture,
   removePrefecture,
   filterByAge,
+  startLoading,
 } from '../redux/resas/resas';
 
 export const loadInitialPrefecturesApi = async (dispatch: Dispatch) => {
   try {
+    dispatch(startLoading());
     const response = await fetch(getPrefecturesApi, {
       method: 'GET',
       headers: { 'x-api-key': `${process.env.REACT_APP_API_KEY}` },
@@ -29,6 +31,7 @@ export const selectPrefectureApi = async (
   dispatch: Dispatch
 ) => {
   try {
+    dispatch(startLoading());
     const res = await fetch(`${getIndividualApi}?prefCode=${prefCode}`, {
       method: 'GET',
       headers: { 'x-api-key': `${process.env.REACT_APP_API_KEY}` },
@@ -46,9 +49,11 @@ export const selectPrefectureApi = async (
 };
 
 export const removePrefectureApi = (prefCode: number, dispatch: Dispatch) => {
+  dispatch(startLoading());
   dispatch(removePrefecture(prefCode));
 };
 
 export const filterByAgeApi = (age: string, dispatch: Dispatch) => {
+  dispatch(startLoading());
   dispatch(filterByAge(age));
 };

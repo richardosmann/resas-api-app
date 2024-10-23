@@ -4,10 +4,14 @@ import useResas from '../../hook/useResas';
 import { Prefecture } from '../../lib/types';
 import { RootState } from '../../redux/store';
 import CustomCheckBox from '../CustomCheckBox';
+import Spinner from '../CustomSpinner';
 import './styles.css';
 
 const CustomPrefectureCard: React.FC = () => {
-  const { prefectures }: { prefectures: Prefecture[] } = useSelector(
+  const {
+    loading,
+    prefectures,
+  }: { loading: boolean; prefectures: Prefecture[] } = useSelector(
     (state: RootState) => state.resas
   );
 
@@ -29,6 +33,7 @@ const CustomPrefectureCard: React.FC = () => {
   );
 
   const showCard = useMemo(() => {
+    console.log(loading);
     return (
       <div className="card">
         {prefectures.map((prefecture: Prefecture, index: number) => (
@@ -39,9 +44,10 @@ const CustomPrefectureCard: React.FC = () => {
             handleChange={handleCheck}
           />
         ))}
+        {loading && <Spinner />}
       </div>
     );
-  }, [prefectures]);
+  }, [prefectures, loading]);
 
   return <>{showCard}</>;
 };
