@@ -2,9 +2,9 @@
 
 - frontend: React 18.2.0(hooks / redux-toolkit /resas api)
 
-- Environment: node.js 18.18.1(express)
+- Environment: node.js 18.18.1
 
-- test: Unit test(jest)
+- test: Unit test using @testing-library/react
 
 - lint: implement the prettier and Eslint
 
@@ -66,4 +66,4 @@ npm start
 - use the redux to cache the data and add the loading bar during data-fetching.
 - prevent the prefecture checkbox double click error.
 - optimize the code using react hook such as useCallBack and useMemo.
-- integrate the Eslint and Prettier for smart code style.
+- integrate the Eslint and Prettier, Husky for smart code style.
