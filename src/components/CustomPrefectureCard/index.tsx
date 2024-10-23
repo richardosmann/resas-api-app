@@ -33,7 +33,6 @@ const CustomPrefectureCard: React.FC = () => {
   );
 
   const showCard = useMemo(() => {
-    console.log(loading);
     return (
       <div className="card">
         {prefectures.map((prefecture: Prefecture, index: number) => (
