@@ -4,6 +4,7 @@ import { Prefecture, ResasType, Population } from '../../lib/types';
 const initialState: ResasType = {
   prefectures: [],
   selectedLists: [],
+  age: '',
 };
 
 export const resasSlice = createSlice({
@@ -23,10 +24,17 @@ export const resasSlice = createSlice({
       const index = state.selectedLists.indexOf(selected[0]);
       state.selectedLists.splice(index, 1);
     },
+    filterByAge(state, action: PayloadAction<string>) {
+      state.age = action.payload;
+    },
   },
 });
 
-export const { loadInitialPrefectures, selectPrefecture, removePrefecture } =
-  resasSlice.actions;
+export const {
+  loadInitialPrefectures,
+  selectPrefecture,
+  removePrefecture,
+  filterByAge,
+} = resasSlice.actions;
 
 export default resasSlice.reducer;

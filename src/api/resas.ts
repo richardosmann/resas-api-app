@@ -5,6 +5,7 @@ import {
   loadInitialPrefectures,
   selectPrefecture,
   removePrefecture,
+  filterByAge,
 } from '../redux/resas/resas';
 
 export const loadInitialPrefecturesApi = async (dispatch: Dispatch) => {
@@ -46,4 +47,8 @@ export const selectPrefectureApi = async (
 
 export const removePrefectureApi = (prefCode: number, dispatch: Dispatch) => {
   dispatch(removePrefecture(prefCode));
+};
+
+export const filterByAgeApi = (age: string, dispatch: Dispatch) => {
+  dispatch(filterByAge(age));
 };

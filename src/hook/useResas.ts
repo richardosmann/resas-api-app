@@ -4,6 +4,7 @@ import {
   loadInitialPrefecturesApi,
   selectPrefectureApi,
   removePrefectureApi,
+  filterByAgeApi,
 } from '../api/resas';
 
 const useResas = () => {
@@ -27,10 +28,18 @@ const useResas = () => {
     [dispatch]
   );
 
+  const useFilterByAge = useCallback(
+    (age: string) => {
+      filterByAgeApi(age, dispatch);
+    },
+    [dispatch]
+  );
+
   return {
     useLoadInitialPrefectures,
     useSelectPrefecture,
     useRemovePrefecture,
+    useFilterByAge,
   };
 };
 
