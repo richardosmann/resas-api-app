@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import { ageOptions } from './lib/constants';
 
-const mockStore = configureStore();
+const mockStore = configureStore([]);
 const store = mockStore({
   resas: {
     prefectures: [
