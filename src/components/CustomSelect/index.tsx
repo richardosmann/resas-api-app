@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import './styles.css';
 import { ageOptions } from '../../lib/constants';
 import useResas from '../../hook/useResas';
@@ -8,10 +8,13 @@ const CustomSelect = () => {
 
   const { useFilterByAge } = useResas();
 
-  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    setOption(event.target.value);
-    useFilterByAge(event.target.value);
-  };
+  const handleSelect = useCallback(
+    (event: React.ChangeEvent<HTMLSelectElement>): void => {
+      setOption(event.target.value);
+      useFilterByAge(event.target.value);
+    },
+    [setOption, useFilterByAge]
+  );
 
   const showSelect = useMemo(() => {
     return (
@@ -23,7 +26,7 @@ const CustomSelect = () => {
         </select>
       </div>
     );
-  }, [ageOptions, handleSelect]);
+  }, [ageOptions, handleSelect, option]);
 
   return <>{showSelect}</>;
 };

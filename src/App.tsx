@@ -1,13 +1,14 @@
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import CustomPrefectureCard from './components/CustomPrefectureCard';
-import CustomSelect from './components/CustomSelect';
+import CustomChart from './components/CustomChart';
+import React from 'react';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Provider store={store}>
       <CustomPrefectureCard />
-      <CustomSelect />
+      <CustomChart />
     </Provider>
   );
 };
