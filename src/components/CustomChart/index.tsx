@@ -57,7 +57,7 @@ const CustomChart: React.FC = () => {
 
   const showChart = useMemo(() => {
     return (
-      selectedLists.length && (
+      selectedLists.length !== 0 && (
         <>
           <CustomSelect />
           <div className="chart">

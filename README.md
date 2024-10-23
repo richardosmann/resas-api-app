@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# Resas Web App React.js(Typescript) Demonstration
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- frontend: React 18.2.0(hooks / redux-toolkit /resas api)
 
-## Available Scripts
+- Environment: node.js 18.18.1(express)
 
-In the project directory, you can run:
+- test: Unit test(jest)
 
-### `npm start`
+- lint: implement the prettier and Eslint
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- husky
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- deploy: used the Vercel
 
-### `npm test`
+# Live Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://resas-app-seven.vercel.app/
 
-### `npm run build`
+## ❯ Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Step 1: Get the Resas api key
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+you need to get the resas api key at following url.
+go to [Resas](https://opendata.resas-portal.go.jp/) and register the account and get the api key.
+set the env params like that
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+REACT_APP_API_KEY=...
+```
 
-### `npm run eject`
+### Step 2: Set up the Development Environment
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You need to set up your development environment before you can do anything.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install [Node.js and NPM](https://nodejs.org/en/download/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Then setup your application environment.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm install(or npm install --force)
+```
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> This installs all dependencies with npm. So after that your development environment is ready to use.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Step 3: Unit Test
+
+- Run `npm run test` to perform the unit test.
+
+### Step 4: Format
+
+- Run `npm run format` to format the code style.
+
+### Step 5: Build
+
+- Run `npm run build` to build the project.
+
+## Key Features
+
+- implement the responsive using raw CSS and styled component
+- implement the standard architecture of React
+- implement the all component unit test using mockstore and jest.
+- use the redux to cache the data and add the loading bar during data-fetching.
+- prevent the prefecture checkbox double click error.
+- optimize the code using react hook such as useCallBack and useMemo.
+- integrate the Eslint and Prettier for smart code style.
